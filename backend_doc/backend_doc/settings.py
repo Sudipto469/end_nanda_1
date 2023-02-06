@@ -134,12 +134,12 @@ DATABASES = {
 
     # DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": "django.db.backends.mysql",
         "NAME": "proshop1_new",
-        "USER":'postgres',
-        'PASSWORD':'root',
+        "USER":'root',
+        'PASSWORD':'',
         'HOST':'localhost',
-        'PORT':'5432'
+        'PORT':'3306'
     }
 # }
 }
