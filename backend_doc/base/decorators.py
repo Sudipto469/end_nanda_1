@@ -11,11 +11,11 @@ def admin_required(function):
     def wrap(request, *args, **kwargs):
 
         if request.user.is_anonymous:
-            return HttpResponseRedirect(reverse('admin_login'))
-        elif request.user.is_admin == True:
+            return HttpResponseRedirect(reverse('admin:admin_login'))
+        elif request.user.is_superuser == True:
             return function(request, *args, **kwargs)
         else:
-            return HttpResponseRedirect(reverse('admin_login'))
+            return HttpResponseRedirect(reverse('admin:dmin_login'))
 
     wrap.__doc__ = function.__doc__
     wrap.__name__ = function.__name__
@@ -27,7 +27,6 @@ def login_required(function):
     def wrap(request, *args, **kwargs):
 
         if request.user.is_anonymous:
-            # return redirect('login', str(request.path_info).strip('/'))
             return redirect('signin', str(request.path_info).strip('/'))
         elif request.user.is_authenticated == True:
             return function(request, *args, **kwargs)

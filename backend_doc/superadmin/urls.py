@@ -8,4 +8,5 @@ urlpatterns = [
     re_path(r'^logout/', views.admin_logout, name='admin_logout'),
 
     path('', views.dashboard, name='dashboard'),
+    path('labList', views.labList, name='labList'),
 ]
